@@ -1,3 +1,4 @@
+//
 class Solution {
 public:
     bool isValid(string s) {
@@ -20,5 +21,29 @@ public:
             return 0;
         else
             return 1;
+    }
+};
+
+//stack
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> k;
+        if(s.empty())
+            return 1;
+        for(int i=0;i<s.size();i++){
+            char c = s[i];
+            if( c=='(' || c=='[' || c=='{' )
+                k.push(s[i]);
+            else{
+                if(k.empty()) return 0;
+                char top = k.top();
+                if((c ==')' && top == '(') || (c ==']' && top == '[') || (c =='}' && top == '{'))
+                    k.pop();
+                else
+                    return 0;
+            }
+        }
+        return k.empty();
     }
 };
