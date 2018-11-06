@@ -1,4 +1,5 @@
-
+// return i是從vecter第一個元素開始return i個值
+//++i跟i++的差別
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
